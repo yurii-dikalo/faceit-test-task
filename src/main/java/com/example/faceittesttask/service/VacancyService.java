@@ -1,11 +1,10 @@
 package com.example.faceittesttask.service;
 
-import com.example.faceittesttask.repository.VacancyRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.example.faceittesttask.model.Vacancy;
+import org.springframework.data.domain.PageRequest;
 
-@RequiredArgsConstructor
-@Service
-public class VacancyService {
-    private final VacancyRepository vacancyRepository;
+import java.util.List;
+
+public interface VacancyService {
+    List<Vacancy> findAll(PageRequest pageRequest);
 }
