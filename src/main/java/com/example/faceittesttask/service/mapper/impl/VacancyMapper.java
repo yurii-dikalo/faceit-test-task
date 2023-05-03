@@ -1,14 +1,17 @@
 package com.example.faceittesttask.service.mapper.impl;
 
+import com.example.faceittesttask.dto.VacancyApiDto;
 import com.example.faceittesttask.dto.VacancyDto;
 import com.example.faceittesttask.model.Vacancy;
 import com.example.faceittesttask.service.mapper.DtoRequestMapper;
 import com.example.faceittesttask.service.mapper.DtoResponseMapper;
+import org.springframework.stereotype.Component;
 
-public class VacancyMapper implements DtoRequestMapper<VacancyDto, Vacancy>,
+@Component
+public class VacancyMapper implements DtoRequestMapper<VacancyApiDto, Vacancy>,
         DtoResponseMapper<VacancyDto, Vacancy> {
     @Override
-    public Vacancy toModel(VacancyDto dto) {
+    public Vacancy toModel(VacancyApiDto dto) {
         Vacancy vacancy = new Vacancy();
         vacancy.setSlug(dto.slug());
         vacancy.setCompanyName(dto.companyName());
@@ -23,7 +26,6 @@ public class VacancyMapper implements DtoRequestMapper<VacancyDto, Vacancy>,
     @Override
     public VacancyDto toDto(Vacancy model) {
         return new VacancyDto(
-                model.getSlug(),
                 model.getCompanyName(),
                 model.getTitle(),
                 model.isRemote(),

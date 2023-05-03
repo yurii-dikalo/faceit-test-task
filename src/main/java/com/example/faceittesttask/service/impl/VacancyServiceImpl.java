@@ -18,4 +18,9 @@ public class VacancyServiceImpl implements VacancyService {
     public List<Vacancy> findAll(PageRequest pageRequest) {
         return vacancyRepository.findAll(pageRequest).toList();
     }
+
+    @Override
+    public void saveAll(List<Vacancy> vacancies) {
+        vacancyRepository.saveAll(vacancies);
+    }
 }

@@ -3,6 +3,8 @@ package com.example.faceittesttask.util;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class SortUtil {
     private static final int ORDER_DIRECTION_INDEX = 1;
@@ -10,15 +12,16 @@ public class SortUtil {
     private static final String SPLIT_DELIMITER = ":";
 
     public Sort getSort(String sortBy) {
-        Sort.Order order;
+        Sort.Order createdAtOrder = Sort.Order.desc("createdAt");
+        Sort.Order titleOrder = Sort.Order.asc("title");
+
         if (sortBy.contains(":")) {
             String[] fieldAndOrder = sortBy.split(SPLIT_DELIMITER);
-            order = new Sort.Order(
-                    Sort.Direction.valueOf(fieldAndOrder[ORDER_DIRECTION_INDEX]),
+            createdAtOrder = new Sort.Order(
+                    Sort.Direction.fromString(fieldAndOrder[ORDER_DIRECTION_INDEX]),
                     fieldAndOrder[FIELD_INDEX]);
-        } else {
-            order = Sort.Order.asc(sortBy);
         }
-        return Sort.by(order);
+
+        return Sort.by(List.of(createdAtOrder, titleOrder));
     }
 }

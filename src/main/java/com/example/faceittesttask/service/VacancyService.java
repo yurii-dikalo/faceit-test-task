@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface VacancyService {
     List<Vacancy> findAll(PageRequest pageRequest);
+
+    void saveAll(List<Vacancy> vacancies);
 }

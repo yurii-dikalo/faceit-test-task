@@ -1,5 +1,6 @@
 package com.example.faceittesttask.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,12 +22,13 @@ public class Vacancy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true, nullable = false, updatable = false)
     private String slug;
+    @JsonProperty("company_name")
     private String companyName;
     private String title;
     private boolean remote;
     private String url;
     private String location;
+    @JsonProperty("created_at")
     private Long createdAt;
 }

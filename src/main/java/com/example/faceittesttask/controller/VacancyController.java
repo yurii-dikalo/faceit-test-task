@@ -4,8 +4,8 @@ import com.example.faceittesttask.dto.VacancyDto;
 import com.example.faceittesttask.service.VacancyService;
 import com.example.faceittesttask.service.mapper.impl.VacancyMapper;
 import com.example.faceittesttask.util.SortUtil;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -24,18 +24,18 @@ public class VacancyController {
     private final VacancyMapper vacancyMapper;
     private final SortUtil sortUtil;
 
-    @ApiOperation(value = "Get the list of all vacancies sorted and with pagination.")
+    @Operation(description = "Get the list of all vacancies sorted and with pagination.")
     @GetMapping
     public List<VacancyDto> findAll(@RequestParam(defaultValue = "20")
-                                    @ApiParam(value =
+                                    @Parameter(description =
                                             "The number of vacancies per page. Default value is 20.")
                                     Integer count,
                                     @RequestParam(defaultValue = "0")
-                                    @ApiParam(value =
+                                    @Parameter(description =
                                             "The page number to retrieve. Default value is 0.")
                                     Integer page,
                                     @RequestParam(defaultValue = "createdAt")
-                                    @ApiParam(value =
+                                    @Parameter(description =
                                             "The field to sort by. Default value is createdAt.")
                                     String sortBy) {
         Sort sort = sortUtil.getSort(sortBy);
