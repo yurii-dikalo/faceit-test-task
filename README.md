@@ -5,10 +5,10 @@ Job Vacancies REST API is a simple application that allows you to upload and sto
 ## Supported Endpoints
 These are implemented endpoints by this web application:
 
-HTTP METHOD: /endpoint - request
-
-GET: /vacancies - Get the list of all vacancies sorted and with pagination.
-GET: /vacancies/group-by-location - Get the list of all vacancies counted and grouped by location.
+| HTTP METHOD | Endpoint                             | Description                                    |
+|-------------|--------------------------------------|------------------------------------------------|
+| GET         | /vacancies                           | Get the list of all vacancies sorted and with pagination. |
+| GET         | /vacancies/group-by-location         | Get the list of all vacancies counted and grouped by location. |
 
 ## Technologies
 - Java (JDK 17)
