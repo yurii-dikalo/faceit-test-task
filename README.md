@@ -1,6 +1,6 @@
 # 📝 Job Vacancies REST API 📝
 ## Project Description
-Job Vacancies REST API is a simple application that allows you to upload and store job vacancies in an H2 database. This API supports the endpoints for getting a list of all vacancies sorted and with pagination, and getting a list of all vacancies counted and grouped by location. List of vacancies is being updated every hour by scheduler. The frequency of the scheduler can be adjusted.
+Job Vacancies REST API is a simple application that allows you to upload and store job vacancies in an H2 database. This API supports several endpoints, including retrieving a sorted and paginated list of all vacancies, retrieving detailed information about a vacancy by its ID, retrieving a list of the most visited vacancies' IDs, and retrieving a count of all vacancies grouped by location. The list of vacancies is updated on an hourly basis by a scheduler, and the frequency of the scheduler can be adjusted according to your needs.
 
 ## Supported Endpoints
 These are implemented endpoints by this web application:
